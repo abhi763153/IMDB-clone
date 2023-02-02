@@ -1,0 +1,21 @@
+
+.header{
+    margin: 0 2.5rem;
+    padding: 1rem 0;
+}
+
+.headerLeft, .headerRight{
+    display: flex;
+    align-items: center;
+}
+
+a > span{
+    margin: 0 30px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: white;
+}
+
+a > span:hover{
+    color: orange;
+}
