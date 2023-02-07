@@ -4,6 +4,7 @@ import "./Home.css"
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import MovieList from "../../components/movieList/movieList";
+import { Link } from "react-router-dom"
 
 
 const Home = () =>{
@@ -25,29 +26,29 @@ const Home = () =>{
                     {
                         
                         popularMovies.map(movie => (
-                            // <Link style={{textDecoration:"none", color:"white"}} to={`/movie/${movie.id}`} >
-                            <div>
-                                <div className="posterImage">
-                                    <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" />
+                            <Link style={{textDecoration:"none", color:"white"}} to={`/movie/${movie.id}`} >
+                                <div>
+                                    <div className="posterImage">
+                                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" />
+                                    </div>
+                                    
+                                    <div className="posterImageOverlay">
+                                        <div className="posterImageTitle">
+                                            { movie ? movie.original_title: ""}
+                                        </div>
+                                        <div className="posterImageRuntime">
+                                            {movie ? movie.release_date : ""}
+                                            <span className="posterImage_rating">
+                                                {movie ? movie.vote_average : ""}
+                                                <i className="fas fa-star " /> {" "}
+                                            </span>
+                                        </div>
+                                        <div className="posterImage_description">
+                                            {movie ? movie.overview : ""}
+                                        </div>
+                                    </div>
                                 </div>
-                                
-                                <div className="posterImageOverlay">
-                                    <div className="posterImageTitle">
-                                        { movie ? movie.original_title: ""}
-                                    </div>
-                                    <div className="posterImageRuntime">
-                                        {movie ? movie.release_date : ""}
-                                        <span className="posterImage_rating">
-                                            {movie ? movie.vote_average : ""}
-                                            <i className="fas fa-star " /> {" "}
-                                        </span>
-                                    </div>
-                                    <div className="posterImage_description">
-                                        {movie ? movie.overview : ""}
-                                    </div>
-                                </div>
-                            </div>
-                            //  </Link>
+                            </Link>
                         ))
                     }
 
